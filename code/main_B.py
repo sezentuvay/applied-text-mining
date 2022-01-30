@@ -174,7 +174,7 @@ def main(argv=None):
     new_new_df = new_df.fillna("X")
     
     tsvfile = 'training_features_B.tsv'
-    new_df.to_csv(tsvfile, sep='\t')
+    new_new_df.to_csv(tsvfile, sep='\t')
 
 
 if __name__ == '__main__':
