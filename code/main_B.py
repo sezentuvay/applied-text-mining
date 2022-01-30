@@ -170,8 +170,11 @@ def main(argv=None):
     #specifying the order of the dataframe
     new_df = df[['story', 'sent_index', 'token_index', 'token-2', 'token-1', 'token', 'token+1', 'token+2', 'pos', 'chunk', 'lemma', 'matchesNeg', 'hasPrefix', 'hasSuffix', 'hasPrefixAntonym', 'hasSuffixAntonym', 'matchesMulticue', 'bio']]
     
-    csvfile = 'features_B.csv'
-    new_df.to_csv(csvfile)
+    # filling in NaN values
+    new_new_df = new_df.fillna("X")
+    
+    tsvfile = 'training_features_B.tsv'
+    new_df.to_csv(tsvfile, sep='\t')
 
 
 if __name__ == '__main__':
