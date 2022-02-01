@@ -6,6 +6,8 @@ from nltk.corpus import stopwords, wordnet, words, treebank
 from spacy.lang.en.stop_words import STOP_WORDS
 
 nlp = spacy.load("en_core_web_sm", disable=["tokenizer", "parser","ner", "textcat", "custom"])
+df = pd.read_csv('./../data/SEM-2012-SharedTask-CD-SCO-training-simple.v2.txt', sep="\t", names=["story", "sent_index", "token_index", "token", "bio"])
+
 
 multiword_expressions = [["by", "no", "means"], ["on", "the", "contrary"], ["rather", "than"], ["not", "for", "the", "world"], ["nothing", "at", "all"], ["no", "more"]]
 
