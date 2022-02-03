@@ -173,7 +173,7 @@ def main(argv=None):
     # filling in NaN values
     new_new_df = new_df.fillna("X")
     
-    tsvfile = 'training_features_B.tsv'
+    tsvfile = './../results/training_features_B.tsv'
     new_new_df.to_csv(tsvfile, sep='\t')
 
 
