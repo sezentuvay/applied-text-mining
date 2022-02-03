@@ -50,7 +50,7 @@ def delete_one_prefix(token, prefixes):
     for prefix in prefixes:
         token = token.lower()
         if token.startswith(prefix) and token not in new_stopwords_list:
-            token = token.strip(prefix)
+            token = token.replace(prefix, "")
     return token
 
 def delete_one_suffix(token, suffixes):
@@ -58,7 +58,7 @@ def delete_one_suffix(token, suffixes):
     for suffix in suffixes:
         token = token.lower()
         if token.endswith(suffix) or token not in new_stopwords_list:
-            token = token.strip(suffix)
+            token = token.replace(suffix, "")
     return token
 
 def lemma_wrapper(row):
@@ -104,7 +104,7 @@ def check_antonym_is_token_prefix(token):
         if token.startswith(prefix):
             new_token = token.strip(prefix)
             for antonym in antonyms_list:
-                if new_token == antonym:
+                if antonym.startswith(new_token):
                     return True
     return False
 
@@ -118,7 +118,7 @@ def check_antonym_is_token_suffix(token):
         if token.endswith(suffix):
             new_token = token.strip(suffix)
             for antonym in antonyms_list:
-                if new_token == antonym:
+                if antonym.startswith(new_token):
                     return True
     return False
 
