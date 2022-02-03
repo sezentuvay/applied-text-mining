@@ -102,7 +102,7 @@ def check_antonym_is_token_prefix(token):
         return False
     for prefix in prefixes:
         if token.startswith(prefix):
-            new_token = token.strip(prefix)
+            new_token = token.replace(prefix, "")
             for antonym in antonyms_list:
                 if antonym.startswith(new_token):
                     return True
@@ -116,7 +116,7 @@ def check_antonym_is_token_suffix(token):
         return False
     for suffix in suffixes:
         if token.endswith(suffix):
-            new_token = token.strip(suffix)
+            new_token = token.replace(suffix, "")
             for antonym in antonyms_list:
                 if antonym.startswith(new_token):
                     return True
