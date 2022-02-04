@@ -18,6 +18,7 @@ algorithm was also used to predict a label based on the test set.
 
 TABLE OF CONTENTS
 -------------------
+```
 ├── annotations                  
 │   ├── Ajda_annotations-20220115T130852Z-001.zip
 │   ├── Ellemijn_annotations-20220116T002456Z-001.zip
@@ -36,6 +37,7 @@ TABLE OF CONTENTS
 ├──  results
 │   ├── features_A.tsv   # features spaCy pipeline   
 │   └── features_B.tsv   # features NLTK pipeline
+```
 
 HOW TO OPERATE THE PROGRAM
 -------------------------
