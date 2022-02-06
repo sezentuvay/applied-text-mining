@@ -51,6 +51,8 @@ Download the code from GitHub, unzip the file and navigate to the relevant direc
 Run either the main_A.py file (the spaCy pipeline) or the main_B.py file (the NLTK pipeline) to obtain the features for each of the files.
 #### Pipeline B is recommended!
 
+Before running the code, it is recommended to create a new virtual environment and run **""pip install -r requirements.txt"** to get the specific packages needed.
+
 To obtain the features from the terminal:
 1. First run **"python main_B.py train"** to output the training file with all added features in the 'results' directory.
 2. Next, run **"python main_B.py dev"** to output the development file with all added features in the 'results' directory.
