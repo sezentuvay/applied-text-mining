@@ -6,16 +6,6 @@ AUTHORS
 -------
 Ajda Efendi, Ellemijn Galjaard, Sezen Tuvay, Sybren Moolhuizen
 
-PROJECT DESCRIPTION
--------------------
-This project is about detecting negation cues in text. The project idea and data are taken from the *SEM Shared Task 2012.
-
-Inside the "code" folder, there are several files to obtain additional features from the text and run several different algorithms.
-The project enables you to train multiple classification algorithms and combinations of features to find and label the negation cues in the data.
-The purpose of the classifiers is to ascribe each token a B-NEG (beginning of negation cue), I-NEG (inside negation cue, in case of multiword negations) or O (non-negation) label. 
-
-After conducting an error analysis, the classifier that worked the best proved to be the SVM algorithm with the following features: *token, token-1, token-2, token+1, token+2, lemma, pos, chunk, matchesNeg, hasPrefix, hasPrefixAntonym* and *matchesMulticue*. This classifier is recommended.
-
 TABLE OF CONTENTS
 -------------------
 ```
@@ -42,6 +32,17 @@ TABLE OF CONTENTS
 │   └── dev_features.tsv     # features development file
 │   └── test_features.tsv    # features test file (both test files combined into one)
 ```
+
+
+PROJECT DESCRIPTION
+-------------------
+This project is about detecting negation cues in text. The project idea and data are taken from the *SEM Shared Task 2012.
+
+Inside the "code" folder, there are several files to obtain additional features from the text and run several different algorithms.
+The project enables you to train multiple classification algorithms and combinations of features to find and label the negation cues in the data.
+The purpose of the classifiers is to ascribe each token a B-NEG (beginning of negation cue), I-NEG (inside negation cue, in case of multiword negations) or O (non-negation) label. 
+
+After conducting an error analysis, the classifier that worked the best proved to be the SVM algorithm with the following features: *token, token-1, token-2, token+1, token+2, lemma, pos, chunk, matchesNeg, hasPrefix, hasPrefixAntonym* and *matchesMulticue*. This classifier is recommended.
 
 HOW TO OPERATE THE PROGRAM
 -------------------------
