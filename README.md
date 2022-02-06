@@ -61,6 +61,7 @@ To obtain the features from the terminal:
 To run the algorithms from the terminal:
 1. Run either **"python SVM.py dev"** or **"python SVM.py test"** to run the SVM algorithm and print a classification report.
 2. Run either **"python CRF.py dev"** or **"python CRF.py test"** to run the CRF algorithm and print a classification report.
+  - Please do not be intimidated by one of many futurewarnings that may rise.
 
 There is also an option to run a neural network by running **"python NN.py"** in the terminal. This neural network is meant as an additional experiment and tests its performance using scikit-learn's train_test_split() function. **It is not to be compared with the SVM and CRF algorithms!**
 
