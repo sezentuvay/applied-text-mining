@@ -9,19 +9,19 @@ Ajda Efendi, Ellemijn Galjaard, Sezen Tuvay, Sybren Moolhuizen
 TABLE OF CONTENTS
 -------------------
 ```
-├── annotations     # includes annotations on a different corpus as an experiment             
+├── annotations             # includes annotations on a different corpus as an experiment             
 │   ├── Ajda_annotations-20220115T130852Z-001.zip
 │   ├── Ellemijn_annotations-20220116T002456Z-001.zip
 │   ├── Sezen_annotations-20220115T131415Z-001.zip
 │   └── Sybren_annotations-20220115T131446Z-001.zip              
 ├── code
-│   ├── main_A.py       # spaCy pipeline
-│   ├── main_B.py       # NLTK pipeline
-│   ├── utils_A.py      # utils for spaCy pipeline
-│   ├── utils_B.py      # utils for NLTK pipeline
-│   ├── SVM.py          # code for running the SVM algorithm
-│   ├── CRF.py          # code for running the CRF algorithm
-│   └── NN.py           # code for running the MLP neural network
+│   ├── main_A.py           # spaCy pipeline
+│   ├── main_B.py           # NLTK pipeline
+│   ├── utils_A.py          # utils for spaCy pipeline
+│   ├── utils_B.py          # utils for NLTK pipeline
+│   ├── SVM.py              # code for running the SVM algorithm
+│   ├── CRF.py              # code for running the CRF algorithm
+│   └── NN.py               # code for running the MLP neural network
 ├── data
 │   ├── SEM-2012-SharedTask-CD-SCO-training-simple.v2.txt
 │   ├── SEM-2012-SharedTask-CD-SCO-dev-simple.v2.txt
