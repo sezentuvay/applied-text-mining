@@ -1,15 +1,15 @@
+# Necessary imports
 import gensim
 import spacy
 import pandas as pd
 import numpy as np
 import sys
-
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV # For optimization
 from sklearn.neural_network import MLPClassifier
 from sklearn.metrics import classification_report
 
-# Change this to your own path of a word embedding model!
+# Change this to your own path of a word embedding model
 google_news_path = "../Downloads/GoogleNews-vectors-negative300.bin.gz"
 
 # Load google news embeddings using gensim
@@ -34,7 +34,7 @@ def main(argv=None):
     
     trainingfile = './../data/SEM-2012-SharedTask-CD-SCO-training-simple.v2.txt'
     
-    # Use pandas to read in txt file into pandas dataframe
+    # Use pandas to read in (txt) file into pandas dataframe
     df_train = pd.read_csv(trainingfile, sep="\t", names=["story", "sent_index", "token_index", "token", "bio"])
     
     # Find corresponding word embeddings for every token
