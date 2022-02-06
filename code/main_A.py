@@ -61,8 +61,7 @@ def element_has_suffix(token):
     else:
         return False
     
-
-def has_suffix(suffixes):
+def has_suffix(df):
     """Input dataframe. Creates booleans for hasSuffix-column and checks for suffixal negations"""
     return df['token'].apply(element_has_suffix)
 
@@ -130,15 +129,24 @@ def main(argv=None):
     
     if argv is None:
         argv = sys.argv
+        
+    trainingfile = './../data/SEM-2012-SharedTask-CD-SCO-training-simple.v2.txt'
+    devfile = './../data/SEM-2012-SharedTask-CD-SCO-dev-simple.v2.txt'
+    testfile_1 = './../data/SEM-2012-SharedTask-CD-SCO-test-cardboard.txt'
+    testfile_2 = './../data/SEM-2012-SharedTask-CD-SCO-test-circle.txt'
     
-    argv = ['','./../data/SEM-2012-SharedTask-CD-SCO-training-simple.v2.txt']
-    trainingfile = argv[1]
+    if sys.argv[1] == "train":
+        df = pd.read_csv(trainingfile, sep="\t", names=["story", "sent_index", "token_index", "token", "bio"])
+    elif sys.argv[1] == "dev":
+        df = pd.read_csv(devfile, sep="\t", names=["story", "sent_index", "token_index", "token", "bio"])
+    elif sys.argv[1] == "test":
+        # combining the two test sets into one
+        df_1 = pd.read_csv(testfile_1, sep="\t", names=["story", "sent_index", "token_index", "token", "bio"])
+        df_2 = pd.read_csv(testfile_2, sep="\t", names=["story", "sent_index", "token_index", "token", "bio"]) 
+        df = df_1.append(df_2, ignore_index=True)    
     
-    df = pd.read_csv(trainingfile, sep="\t", names=["story", "sent_index", "token_index", "token", "bio"])
     
-    # some of the features are currently quite similar,
-    # we will make a selection when building the classifier
-    
+    # 'shift' function shifts the index, puts NaN values at empty indices
     df['token-2'] = df['token'].shift(2)
     df['token-1'] = df['token'].shift(1)
     df['token+1'] = df['token'].shift(-1)
@@ -162,7 +170,13 @@ def main(argv=None):
     # filling in NaN values
     new_new_df = new_df.fillna("X")
     
-    tsvfile = './../results/training_features_B.tsv'
+    if sys.argv[1] == "train":
+        tsvfile = './../results/train_features.tsv'
+    elif sys.argv[1] == "dev":
+        tsvfile = './../results/dev_features.tsv'
+    elif sys.argv[1] == "test":
+        tsvfile = './../results/test_features.tsv'
+        
     new_new_df.to_csv(tsvfile, sep='\t')
 
 
