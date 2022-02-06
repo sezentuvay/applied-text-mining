@@ -8,7 +8,7 @@ Ajda Efendi, Ellemijn Galjaard, Sezen Tuvay, Sybren Moolhuizen
 
 PROJECT DESCRIPTION
 -------------------
-This project is about detecting negation cues in text. The project idea and data are taken from the *\SEM Shared Task 2012.
+This project is about detecting negation cues in text. The project idea and data are taken from the *SEM Shared Task 2012.
 
 Inside the "code" folder, there are several files to obtain additional features from the text and run several different algorithms.
 The project enables you to train multiple classification algorithms and combinations of features to find and label the negation cues in the data.
