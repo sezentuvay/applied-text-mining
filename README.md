@@ -9,7 +9,7 @@ Ajda Efendi, Ellemijn Galjaard, Sezen Tuvay, Sybren Moolhuizen
 TABLE OF CONTENTS
 -------------------
 ```
-├── annotations                  
+├── annotations     # includes annotations on a different corpus as an experiment             
 │   ├── Ajda_annotations-20220115T130852Z-001.zip
 │   ├── Ellemijn_annotations-20220116T002456Z-001.zip
 │   ├── Sezen_annotations-20220115T131415Z-001.zip
