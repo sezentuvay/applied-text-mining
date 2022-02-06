@@ -134,11 +134,11 @@ def main(argv=None):
     # use the same metric for evaluation
     f1_scorer = make_scorer(metrics.flat_f1_score, average='weighted')
 
-    # search
+    # searches for hyper parameters
     rs = RandomizedSearchCV(crf, params_space, cv=3, verbose=1, n_jobs=-1, n_iter=50, scoring=f1_scorer, random_state=0)
     rs.fit(X_train, Y_train)
     
-    # select best hyperparameters    
+    # select best hyper parameters    
     crf = rs.best_estimator_
     
     labels = list(crf.classes_)
