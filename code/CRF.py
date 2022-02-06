@@ -42,7 +42,12 @@ def extract_sents_from_tsv(inputfile):
     return sents
 
 def token2features(sentence, i):
+    """
+    Creates feature dictionaries.
     
+    Input: sentence list (incl all tokens+features in tuples) and index
+    Output: dictionaries of features    
+    """
     
     # comment out features you do not want to include
     story = sentence[i][1]
@@ -145,15 +150,15 @@ def main(argv=None):
     results_df = pd.DataFrame()
     
     # adding predicted label for each individual token in dataframe series
-    predicted_labels = [label for small_list in Y_pred for label in small_list]
+    predicted_labels = [label for sent_list in Y_pred for label in sent_list]
     results_df['pred_labels'] = predicted_labels
     
     # adding gold label for each individual token in dataframe series
-    gold_labels = [label for small_list in Y_test for label in small_list]
+    gold_labels = [label for sent_list in Y_test for label in sent_list]
     results_df['gold_labels'] = gold_labels
     
     # also adding tokens so it's easy to analyze the results per token
-    test_tokens = [token_tuple[6] for small_list in test_sents for token_tuple in small_list]
+    test_tokens = [token_tuple[6] for sent_list in test_sents for token_tuple in sent_list]
     results_df['tokens'] = test_tokens
     
     report = pd.DataFrame(classification_report(y_true=results_df['gold_labels'], y_pred=results_df['pred_labels'], labels=sorted_labels, output_dict=True)).transpose()   
