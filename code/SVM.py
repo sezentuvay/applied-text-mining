@@ -11,9 +11,11 @@ def main(argv=None):
         
     if argv is None:
         argv = sys.argv
-        
+     
+    # Read tsv file using pandas and turn it into a dataframe
     train_df = pd.read_csv('./../results/train_features.tsv', sep="\t")
     
+    # Read in dev / test set depeding on argument provided when running the python file
     if sys.argv[1] == "dev":
         test_df = pd.read_csv('./../results/dev_features.tsv', sep="\t") 
     elif sys.argv[1] == "test":
@@ -39,6 +41,7 @@ def main(argv=None):
     ### The GridSearchCV was inspired by the sklearn documentation and lecture by Ilia Markov 
     grid = GridSearchCV(estimator=classifier, param_grid=parameters, cv=5, scoring='f1_macro')
     grid.fit(X_train, Y_train)
+    # Select best hyper parameters
     classifier = grid.best_estimator_
     
     X_test = vec.transform(test_instances)
