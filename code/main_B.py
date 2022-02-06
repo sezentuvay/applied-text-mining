@@ -177,7 +177,7 @@ def main(argv=None):
     #specifying the order of the dataframe
     new_df = df[['story', 'sent_index', 'token_index', 'token-2', 'token-1', 'token', 'token+1', 'token+2', 'pos', 'chunk', 'lemma', 'matchesNeg', 'hasPrefix', 'hasSuffix', 'hasPrefixAntonym', 'hasSuffixAntonym', 'matchesMulticue', 'bio']]
     
-    # filling in NaN values created by 'shift' function
+    # filling in NaN values created by use of 'shift' function
     new_new_df = new_df.fillna("X")
     
     if sys.argv[1] == "train":
